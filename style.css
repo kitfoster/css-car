@@ -1,0 +1,171 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  background-color: #EE443E;
+  border-radius: 16% 27% 9% 33% / 69% 58% 22% 40%;
+  width: 300px;
+  height: 100px;
+}
+
+.body::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #282221;
+  width: 69px;
+  height: 42px;
+  margin-top: 52px;
+  margin-left: 36px;
+  border-radius: 50% 50% 19% 84%/ 74% 88% 2% 18%;
+  border: 6px solid #EC6F6F;
+  border-bottom: none;
+}
+
+.body::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #282221;
+  width: 69px;
+  height: 42px;
+  margin-top: 52px;
+  margin-left: 206px;
+  border-radius: 50% 50% 32% 8%/ 74% 88% 4% 18%;
+  border: 6px solid #EC6F6F;
+  border-bottom: none;
+}
+
+.roof {
+  background-color: #EE443E;
+  border-radius: 27% 25% 0% 0%/ 41% 75% 0% 0%;
+  width: 135px;
+  height: 75px;
+  margin-left: 72px;
+}
+
+.roof::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 50px;
+  margin-left: -22px;
+  border-left: 24px solid transparent;
+  border-bottom: 55px solid #EE443E;
+}
+
+.roof::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 23px;
+  margin-left: 104px;
+  border-right: 24px solid transparent;
+  border-bottom: 55px solid #EE443E;
+}
+
+.window {
+  position: absolute;
+  background-color: #282221;
+  height: 61px;
+  margin-top: 14px;
+  width: 62px;
+  z-index: 1;
+  border-radius: 65% 20% 20% 10%/ 100% 20% 20% 10%;
+}
+
+.window.front {
+  margin-left: 74px;
+  border-radius: 20% 72% 10% 20%/ 20% 99% 10% 20%
+}
+
+.wheel {
+  width: 58px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #627D8A;
+  position: absolute;
+  margin-top: 63px;
+  z-index: 1;
+  margin-left: 47px;
+}
+
+.wheel::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #D0D8DC;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 14px;
+}
+
+.wheel::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 19px;
+}
+
+.wheel.front {
+  margin-left: 217px;
+}
+
+.handle {
+  position: absolute;
+  width: 31px;
+  height: 14px;
+  background-color: #EB9A9B;
+  border-radius: 7px;
+  margin-top: 12px;
+  margin-left: 146px;
+}
+
+.bumper {
+  background-color: #D0D8DC;
+  position: absolute;
+  width: 20px;
+  height: 14px;
+  border-radius: 7px;
+  margin-top: 55px;
+  margin-left: -2px;
+  transform: rotate(18deg);
+  z-index: 1;
+}
+
+.bumper.front {
+  margin-left: 288px;
+  margin-top: 73px;
+  width: 16px;
+  transform: rotate(-3deg);
+}
+
+.backlight {
+  position: absolute;
+  height: 20px;
+  width: 8px;
+  background-color: pink;
+  margin-top: 37px;
+  transform: rotate(12deg);
+  margin-left: 1px;
+}
+
+.frontlight {
+  background-color: #FCBE38;
+  position: absolute;
+  height: 20px;
+  width: 10px;
+  border-radius: 5px;
+  margin-left: 294px;
+  margin-top: 49px;
+}

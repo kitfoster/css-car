@@ -1,7 +1,83 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* animations */
+
+body:hover .road {
+  animation-name: road1;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .road.two {
+  animation-name: road2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .tree {
+  animation-name: tree1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .tree.two {
+  animation-name: tree2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .wheel {
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .sun {
+  animation-name: rotate;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+@keyframes road1
+{
+  from { margin-left: 0;}
+  to {margin-left: -100%;}
+}
+
+@keyframes road2
+{
+  from { margin-left: 100%;}
+  to {margin-left: 0%;}
+}
+
+@keyframes tree1
+{
+  from { margin-left: 0;}
+  to {margin-left: -100%;}
+}
+
+@keyframes tree2
+{
+  from { margin-left: 100%;}
+  to {margin-left: 0;}
+}
+
+/* car */
+
+.car {
+  position: absolute;
+  bottom: 40vh;
+  z-index: 1;
+  left: calc(50vw - 150px);
 }
 
 .body {
@@ -108,11 +184,6 @@ body {
   width: 58px;
   height: 58px;
   border-radius: 29px;
-  background:
-  radial-gradient(black 15%, transparent 16%) 0 0,
-  radial-gradient(black 15%, transparent 16%) 8px 8px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
   background-color: #627D8A;
   background-size:5px 5px;
   position: absolute;
@@ -121,27 +192,16 @@ body {
   margin-left: 47px;
 }
 
-.car:hover .wheel {
-  animation-name: rotate;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-@keyframes rotate {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
-}
-
 .wheel::before {
   content: "";
   display: block;
   position: absolute;
   background-color: #D0D8DC;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 15px;
-  margin: 14px;
+  margin: 13px;
+  border: 2px dotted #282221;
 }
 
 .wheel.front {
@@ -149,7 +209,7 @@ body {
 }
 
 .wheel-shine {
-  position: fixed;
+  position: absolute;
   background-color: white;
   width: 10px;
   height: 10px;
@@ -210,4 +270,175 @@ body {
   border-radius: 5px;
   margin-left: 294px;
   margin-top: 49px;
+}
+
+/* background */
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sun {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  right: 20vw;
+  border-radius: 50px;
+  background-color: yellow;
+  box-shadow: 0px 0px 20px 15px yellow;
+}
+
+.ray {
+  position: absolute;
+  width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+  border-bottom: 30px solid yellow;
+  opacity: 0.8;
+}
+
+.ray.one {
+  margin-left: 39px;
+  margin-top: -65px;
+}
+
+.ray.two {
+  margin-left: 97px;
+  margin-top: -46px;
+  transform: rotate(41deg);
+}
+
+.ray.three {
+  margin-left: 127px;
+  margin-top: 2px;
+  transform: rotate(70deg);
+}
+
+.ray.four {
+  margin-left: 128px;
+  margin-top: 62px;
+  transform: rotate(112deg);
+}
+
+.ray.five {
+  margin-left: 102px;
+  margin-top: 107px;
+  transform: rotate(138deg);
+}
+
+.ray.six {
+  margin-left: 50px;
+  margin-top: 129px;
+  transform: rotate(170deg);
+}
+
+.ray.seven {
+  margin-left: -6px;
+  margin-top: 122px;
+  transform: rotate(208deg);
+}
+
+.ray.eight {
+  margin-left: -50px;
+  margin-top: 82px;
+  transform: rotate(238deg);
+}
+
+.ray.nine {
+  margin-left: -65px;
+  margin-top: 14px;
+  transform: rotate(280deg);
+}
+
+.ray.ten {
+  margin-left: -27px;
+  margin-top: -44px;
+  transform: rotate(321deg);
+}
+
+.road {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background-color: #595959;
+  z-index: -1;
+  bottom: calc(40vh - 150px);
+}
+
+.road.two {
+  margin-left: 100%;
+}
+
+.road:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 55px dashed white;
+  height: 80px;
+  width: 90%;
+}
+
+.road:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 40px solid #595959;
+  width: 100%;
+  margin-top: 95px;
+}
+
+.tree {
+  height: 250px;
+  width: 50px;
+  position: absolute;
+  bottom: calc(40vh + 50px);
+  left: 20vw;
+  background-color: #4E441E;
+
+  display: flex;
+  justify-content: center;
+}
+
+.tree.two {
+  margin-left: 100%;
+}
+
+.leaves {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+}
+
+.leaves.one {
+  margin-top: -130px;
+  border: 80px solid transparent;
+  border-bottom: 80px solid #6DA02F;
+  border-radius: 80px;
+}
+
+.leaves.two {
+  margin-top: -150px;
+  border: 120px solid transparent;
+  border-bottom: 120px solid #497D22;
+  border-radius: 120px;
+}
+
+.leaves.three {
+  margin-top: -150px;
+  border: 150px solid transparent;
+  border-bottom: 150px solid #376018;
+  border-radius: 150px;
+}
+
+.leaves.four {
+  margin-top: -150px;
+  border: 180px solid transparent;
+  border-bottom: 180px solid #354F1F;
+  border-radius: 180px;
 }

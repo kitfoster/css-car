@@ -81,18 +81,56 @@ body {
 
 .window.front {
   margin-left: 74px;
-  border-radius: 20% 72% 10% 20%/ 20% 99% 10% 20%
+  width: 55px;
+  border-radius: 20% 72% 10% 20%/ 20% 99% 10% 20%;
+}
+
+.window::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: 44px solid #282221;
+}
+
+.window.back::before {
+  border-left: 19px solid transparent;
+  top: 17px;
+  right: 52px;
+}
+
+.window.front::before {
+  border-right: 19px solid transparent;
+  top: 17px;
+  left: 45px;
 }
 
 .wheel {
   width: 58px;
   height: 58px;
   border-radius: 29px;
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
   background-color: #627D8A;
+  background-size:5px 5px;
   position: absolute;
   margin-top: 63px;
   z-index: 1;
   margin-left: 47px;
+}
+
+.car:hover .wheel {
+  animation-name: rotate;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }
 
 .wheel::before {
@@ -106,19 +144,23 @@ body {
   margin: 14px;
 }
 
-.wheel::after {
-  content: "";
-  display: block;
-  position: absolute;
+.wheel.front {
+  margin-left: 217px;
+}
+
+.wheel-shine {
+  position: fixed;
   background-color: white;
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  margin: 19px;
+  margin-left: 66px;
+  margin-top: 82px;
+  z-index: 1;
 }
 
-.wheel.front {
-  margin-left: 217px;
+.wheel-shine.front {
+  margin-left: 237px;
 }
 
 .handle {

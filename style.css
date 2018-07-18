@@ -1,3 +1,8 @@
+body {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 /* animations */
 
 body:hover .road {
@@ -16,14 +21,28 @@ body:hover .road.two {
 
 body:hover .tree {
   animation-name: tree1;
-  animation-duration: 2s;
+  animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
 body:hover .tree.two {
   animation-name: tree2;
-  animation-duration: 2s;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .hill.one {
+  animation-name: hill1;
+  animation-duration: 45s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .hill.two {
+  animation-name: hill2;
+  animation-duration: 45s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -38,6 +57,34 @@ body:hover .wheel {
 body:hover .sun {
   animation-name: rotate;
   animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .cloud.one {
+  animation-name: cloud1;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .cloud.two {
+  animation: cloud2 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .cloud.three {
+  animation-name: cloud3;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .cloud.four {
+  animation-name: cloud4;
+  animation-duration: 60s;
+  animation-delay: 15s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -71,12 +118,69 @@ body:hover .sun {
   to {margin-left: 0;}
 }
 
+@keyframes hill1
+{
+  0% { margin-left: 0;}
+  60% {margin-left: -210%; z-index: 3;}
+  61% {margin-left: -210%; z-index: -1;}
+  62% {margin-left: 100%; z-index: -1;}
+  63% {margin-left: 100%; z-index: 3;}
+  100% {margin-left: 0; z-index: 3;}
+}
+
+@keyframes hill2
+{
+  0% { left: 150%;}
+  97% { left: -200%; z-index: 3;}
+  98% { left: -200%; z-index: -1;}
+  99% { left: 150%; z-index: -1;}
+  100% { left: 150%; z-index: 3;}
+}
+
+@keyframes cloud1
+{
+  0% { right: 100px;}
+  80% { right: 120%; top: 20vh; }
+  81% { right: 120%; top: -10vh; }
+  82% { right: -20%; top: -10vh; }
+  83% { right: -20%; top: 20vh; }
+  100% { right: 100px; top: 20vh; }
+}
+
+@keyframes cloud2
+{
+  0% { left: 200px;}
+  20% { left: -200px; top: 10vh; }
+  21% { left: -200px; top: -10vh; }
+  22% { left: 120%; top: -10vh; }
+  23% { left: 120%; top: 10vh; }
+  100% { left: 200px; }
+}
+
+@keyframes cloud3
+{
+  0% { left: 100%;}
+  97% { left: -500px; top: 18vh; }
+  98% { left: -500px; top: -20vh; }
+  99% { left: 120%; top: -20vh; }
+  100% { left: 100%; top: 18vh; }
+}
+
+@keyframes cloud4
+{
+  0% { left: 100%;}
+  97% { left: -500px; top: 12vh; }
+  98% { left: -500px; top: -20vh; }
+  99% { left: 120%; top: -20vh; }
+  100% { left: 100%; top: 12vh; }
+}
+
 /* car */
 
 .car {
   position: absolute;
-  bottom: 40vh;
-  z-index: 1;
+  bottom: 165px;
+  z-index: 5;
   left: calc(50vw - 150px);
 }
 
@@ -85,6 +189,7 @@ body:hover .sun {
   border-radius: 16% 27% 9% 33% / 69% 58% 22% 40%;
   width: 300px;
   height: 100px;
+  box-shadow: -32px 51px 27px -38px black;
 }
 
 .body::before {
@@ -190,6 +295,7 @@ body:hover .sun {
   margin-top: 63px;
   z-index: 1;
   margin-left: 47px;
+  /* box-shadow: -7px 12px 31px -10px black; */
 }
 
 .wheel::before {
@@ -282,84 +388,154 @@ body:hover .sun {
   left: 0;
 }
 
+.sky {
+  height: 100%;
+  z-index: 1;
+  background-color: cornflowerblue;
+  width: 100%;
+}
+
 .sun {
   position: absolute;
-  width: 100px;
-  height: 100px;
   top: 100px;
   right: 20vw;
-  border-radius: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  z-index: 2;
   background-color: yellow;
-  box-shadow: 0px 0px 20px 15px yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rays {
+  position: absolute;
+}
+
+.rays.two {
+  transform: rotate(180deg);
 }
 
 .ray {
+  border-bottom: 100vw solid rgba(255,255,153,0.2);
+  border-left: 10vw solid transparent;
+  border-right: 10vw solid transparent;
   position: absolute;
-  width: 0;
-	height: 0;
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-  border-bottom: 30px solid yellow;
-  opacity: 0.8;
+  z-index: 0;
+  transform-origin: top center;
 }
 
 .ray.one {
-  margin-left: 39px;
-  margin-top: -65px;
+  transform: rotate(15deg);
+  right: -12vw;
+  top: 0;
+  border-left: 15vw solid transparent;
+  border-right: 12vw solid transparent;
 }
 
 .ray.two {
-  margin-left: 97px;
-  margin-top: -46px;
-  transform: rotate(41deg);
+  transform: rotate(34deg);
+  right: -10vw;
+  top: -1vh;
 }
 
 .ray.three {
-  margin-left: 127px;
-  margin-top: 2px;
-  transform: rotate(70deg);
+  transform: rotate(53deg);
+  right: -11vw;
+  top: 0vh;
+  border-left: 15vw solid transparent;
+  border-right: 12vw solid transparent;
 }
 
 .ray.four {
-  margin-left: 128px;
-  margin-top: 62px;
-  transform: rotate(112deg);
+  transform: rotate(85deg);
+  right: -14vw;
+  top: 0vh;
+  border-left: 13vw solid transparent;
+  border-right: 12vw solid transparent
 }
 
 .ray.five {
-  margin-left: 102px;
-  margin-top: 107px;
-  transform: rotate(138deg);
+  transform: rotate(105deg);
+  right: -15vw;
+  top: 2vh;
 }
 
 .ray.six {
-  margin-left: 50px;
-  margin-top: 129px;
-  transform: rotate(170deg);
+  transform: rotate(130deg);
+  right: -16vw;
+  top: -1vh;
+  border-left: 15vw solid transparent;
+  border-right: 12vw solid transparent;
 }
 
 .ray.seven {
-  margin-left: -6px;
-  margin-top: 122px;
-  transform: rotate(208deg);
+  transform: rotate(170deg);
+  right: -15vw;
+  top: -1vh;
+  border-left: 15vw solid transparent;
+  border-right: 12vw solid transparent;
 }
 
-.ray.eight {
-  margin-left: -50px;
-  margin-top: 82px;
-  transform: rotate(238deg);
+.cloud {
+  width: 178px;
+  height: 65px;
+  border-radius: 41px;
+  background-color: white;
+  box-shadow: 8px 8px 38px -6px lightgrey;
+  position: absolute;
+  z-index: 4;
 }
 
-.ray.nine {
-  margin-left: -65px;
-  margin-top: 14px;
-  transform: rotate(280deg);
+.cloud.one {
+  top: 20vh;
+  right: 100px;
+  transform: scale(1.2);
 }
 
-.ray.ten {
-  margin-left: -27px;
-  margin-top: -44px;
-  transform: rotate(321deg);
+.cloud.two {
+  top: 10vh;
+  left: 200px;
+  transform: scale(-1, 1);
+}
+
+.cloud.three {
+  top: 18vh;
+  left: 100%;
+  transform: scale(1.3);
+}
+
+.cloud.four {
+  top: 12vh;
+  left: calc(100% + 500px);
+  transform: scale(0.9);
+}
+
+.cloud:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  bottom: 37px;
+  left: 34px;
+  box-shadow: -12px -25px 54px -11px lightgrey;
+}
+
+.cloud:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: white;
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  bottom: 37px;
+  left: 73px;
+  box-shadow: -10px -21px 43px -22px lightgrey;
 }
 
 .road {
@@ -367,8 +543,8 @@ body:hover .sun {
   width: 100%;
   height: 200px;
   background-color: #595959;
-  z-index: -1;
-  bottom: calc(40vh - 150px);
+  z-index: 4;
+  bottom: 0;
 }
 
 .road.two {
@@ -381,7 +557,7 @@ body:hover .sun {
   position: absolute;
   border-bottom: 55px dashed white;
   height: 80px;
-  width: 90%;
+  width: 95%;
 }
 
 .road:after {
@@ -393,14 +569,42 @@ body:hover .sun {
   margin-top: 95px;
 }
 
+.hill {
+  position: absolute;
+  height: 30vh;
+  width: 200%;
+  background-color: #A0B454;
+  bottom: 100px;
+  border-radius: 50% / 15vh;
+  left: -5%;
+  z-index: 3;
+}
+
+.hill.two {
+  transform: rotate(-2deg);
+  background-color: #7f9137;
+  left: 100%;
+  height: 50vh;
+  bottom: -100px;
+  border-radius: 50% / 25vh;
+}
+
+.hill.three {
+  background-color: #6a7735;
+  height: 10vh;
+  border-radius: 50% / 5vh;
+  transform: none;
+  bottom: 150px;
+}
+
 .tree {
   height: 250px;
   width: 50px;
   position: absolute;
-  bottom: calc(40vh + 50px);
+  bottom: 200px;
   left: 20vw;
   background-color: #4E441E;
-
+  z-index: 3;
   display: flex;
   justify-content: center;
 }

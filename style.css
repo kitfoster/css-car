@@ -3,6 +3,25 @@ body {
   overflow: hidden;
 }
 
+h1 {
+  position: absolute;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  z-index: 5;
+  width: 100%;
+}
+
+h2 {
+  position: absolute;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  z-index: 5;
+  width: 100%;
+  margin-top: 70px;
+}
+
 /* animations */
 
 body:hover .road {
@@ -442,8 +461,8 @@ body:hover .cloud.four {
 
 .ray.three {
   transform: rotate(53deg);
-  right: -11vw;
-  top: 0vh;
+  right: -12vw;
+  top: -2vh;
   border-left: 15vw solid transparent;
   border-right: 12vw solid transparent;
 }

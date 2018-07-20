@@ -38,6 +38,20 @@ body:hover .road.two {
   animation-timing-function: linear;
 }
 
+body:hover .sky {
+  animation-name: sky;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .ray {
+  animation-name: ray;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 body:hover .tree {
   animation-name: tree1;
   animation-duration: 15s;
@@ -62,6 +76,7 @@ body:hover .hill.one {
 body:hover .hill.two {
   animation-name: hill2;
   animation-duration: 45s;
+  animation-delay: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -74,8 +89,15 @@ body:hover .wheel {
 }
 
 body:hover .sun {
-  animation-name: rotate;
-  animation-duration: 60s;
+  animation-name: rotate, day;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .moon {
+  animation-name: night;
+  animation-duration: 90s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
@@ -111,6 +133,51 @@ body:hover .cloud.four {
 @keyframes rotate {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
+}
+
+@keyframes sky {
+  0% {background-color: #9BC1E2;}
+  10% {background-color: #7BA0C8;}
+  20% {background-color: #7398C0;}
+  30% {background-color: #5D6CAE;}
+  45% {background-color: #283263;}
+  50% {background-color: #14152B;}
+  65% {background-color: #111018;}
+  70% {background-color: #0F1722;}
+  85% {background-color: #15253D;}
+  90% {background-color: #325694;}
+  95% {background-color: #6A9FD2;}
+  100% {background-color: #9BC1E2;}
+}
+
+@keyframes ray
+{
+  0% { opacity: 1;}
+  30% { opacity: 0;}
+  90% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+@keyframes day
+{
+  0% { right: 20vw;}
+  30% { right: 100%; z-index: 2;}
+  31% { right: 100%; z-index: -1;}
+  32% { right: -200px; z-index: -1;}
+  33% { right: -200px; z-index: 2;}
+  90% { right: -200px; z-index: 2;}
+  100% { right: 20vw; z-index: 2;}
+}
+
+@keyframes night
+{
+  0% { right: -200px;}
+  40% { right: -200px; z-index: 2;}
+  80% { right: 110%; z-index: 2;}
+  81% { right: 110%; z-index: -1;}
+  82% { right: -200px; z-index: -1;}
+  83% { right: -200px; z-index: 2;}
+  100% { right: -200px; z-index: 2;}
 }
 
 @keyframes road1
@@ -410,8 +477,18 @@ body:hover .cloud.four {
 .sky {
   height: 100%;
   z-index: 1;
-  background-color: cornflowerblue;
+  background-color: #9BC1E2;
   width: 100%;
+}
+
+.moon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 30px 30px 0 0 white;
+  position: absolute;
+  top: 15vh;
+  right: -200px;
 }
 
 .sun {
@@ -623,7 +700,7 @@ body:hover .cloud.four {
   bottom: 200px;
   left: 20vw;
   background-color: #4E441E;
-  z-index: 3;
+  z-index: 4;
   display: flex;
   justify-content: center;
 }

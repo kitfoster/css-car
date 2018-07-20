@@ -275,18 +275,20 @@ body:hover .cloud.four {
 @keyframes cloud3
 {
   0% { left: 100%;}
-  97% { left: -500px; top: 18vh; }
-  98% { left: -500px; top: -20vh; }
-  99% { left: 120%; top: -20vh; }
+  96% { left: -500px; top: 18vh; }
+  97% { left: -500px; top: -20vh; }
+  98% { left: 120%; top: -20vh; }
+  99% { left: 120%; top: 18vh; }
   100% { left: 100%; top: 18vh; }
 }
 
 @keyframes cloud4
 {
   0% { left: 100%;}
-  97% { left: -500px; top: 12vh; }
-  98% { left: -500px; top: -20vh; }
-  99% { left: 120%; top: -20vh; }
+  96% { left: -500px; top: 12vh; }
+  97% { left: -500px; top: -20vh; }
+  98% { left: 120%; top: -20vh; }
+  99% { left: 120%; top: 12vh; }
   100% { left: 100%; top: 12vh; }
 }
 

@@ -102,6 +102,20 @@ body:hover .moon {
   animation-timing-function: linear;
 }
 
+body:hover .star {
+  animation-name: star;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+body:hover .stars {
+  animation-name: stars;
+  animation-duration: 90s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 body:hover .cloud.one {
   animation-name: cloud1;
   animation-duration: 60s;
@@ -135,6 +149,11 @@ body:hover .cloud.four {
   to {transform: rotate(360deg);}
 }
 
+@keyframes star {
+  from {transform: rotate(0deg) scale(0.15);}
+  to {transform: rotate(360deg) scale(0.15);}
+}
+
 @keyframes sky {
   0% {background-color: #9BC1E2;}
   10% {background-color: #7BA0C8;}
@@ -154,7 +173,7 @@ body:hover .cloud.four {
 {
   0% { opacity: 1;}
   30% { opacity: 0;}
-  90% { opacity: 0;}
+  92% { opacity: 0;}
   100% { opacity: 1;}
 }
 
@@ -173,11 +192,21 @@ body:hover .cloud.four {
 {
   0% { right: -200px;}
   40% { right: -200px; z-index: 2;}
-  80% { right: 110%; z-index: 2;}
-  81% { right: 110%; z-index: -1;}
-  82% { right: -200px; z-index: -1;}
-  83% { right: -200px; z-index: 2;}
+  85% { right: 110%; z-index: 2;}
+  86% { right: 110%; z-index: -1;}
+  87% { right: -200px; z-index: -1;}
+  88% { right: -200px; z-index: 2;}
   100% { right: -200px; z-index: 2;}
+}
+
+@keyframes stars
+{
+  0% { opacity: 0;}
+  42% { opacity: 0;}
+  50% { opacity: 1;}
+  70% { opacity: 1;}
+  85% { opacity: 0;}
+  100% { opacity: 0;;}
 }
 
 @keyframes road1
@@ -481,16 +510,6 @@ body:hover .cloud.four {
   width: 100%;
 }
 
-.moon {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  box-shadow: 30px 30px 0 0 white;
-  position: absolute;
-  top: 15vh;
-  right: -200px;
-}
-
 .sun {
   position: absolute;
   top: 100px;
@@ -572,6 +591,133 @@ body:hover .cloud.four {
   top: -1vh;
   border-left: 15vw solid transparent;
   border-right: 12vw solid transparent;
+}
+
+.moon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 30px 30px 0 0 white;
+  position: absolute;
+  top: 15vh;
+  right: -200px;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.star {
+  position: absolute;
+  display: block;
+  color: white;
+  width: 0px;
+  height: 0px;
+  border-right:  100px solid transparent;
+  border-bottom: 70px  solid white;
+  border-left:   100px solid transparent;
+  transform: scale(0.15);
+}
+
+.star:before {
+  position: absolute;
+  display: block;
+  content: '';
+  border-bottom: 80px solid white;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  transform: rotate(-35deg);
+}
+
+.star:after {
+  position: absolute;
+  display: block;
+  content: '';
+  color: white;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid white;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+}
+
+.star.one {
+  top: 10vh;
+  left: 10vw;
+}
+
+.star.two {
+  top: 20vh;
+  left: 20vw;
+}
+
+.star.three {
+  top: 40vh;
+  left: 5vw;
+}
+
+.star.four {
+  top: 5vh;
+  left: 35vw;
+}
+
+.star.five {
+  top: 45vh;
+  left: 40vw;
+}
+
+.star.six {
+  top: 25vh;
+  left: 50vw;
+}
+
+.star.seven {
+  top: 5vh;
+  left: 65vw;
+}
+
+.star.eight {
+  top: 20vh;
+  left: 80vw;
+}
+
+.star.nine {
+  top: 40vh;
+  left: 70vw;
+}
+
+.star.ten {
+  top: 30vh;
+  left: 85vw;
+}
+
+.star.eleven {
+  top: 5vh;
+  left: 0;
+}
+
+.star.twelve {
+  top: 30vh;
+  left: 34vw;
+}
+
+.star.thirteen {
+  top: 25vh;
+  left: 0;
+}
+
+.star.fourteen {
+  top: 19vh;
+  left: 75vw;
 }
 
 .cloud {

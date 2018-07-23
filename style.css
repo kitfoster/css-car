@@ -52,7 +52,7 @@ body:hover .ray {
   animation-timing-function: linear;
 }
 
-body:hover .tree {
+body:hover .tree.one {
   animation-name: tree1;
   animation-duration: 15s;
   animation-iteration-count: infinite;
@@ -282,19 +282,19 @@ body:hover .cloud.four {
 
 @keyframes hill2
 {
-  0% { left: 150%;}
+  0% { left: 120%;}
   97% { left: -200%; z-index: 3;}
   98% { left: -200%; z-index: -1;}
-  99% { left: 150%; z-index: -1;}
-  100% { left: 150%; z-index: 3;}
+  99% { left: 120%; z-index: -1;}
+  100% { left: 120%; z-index: 3;}
 }
 
 @keyframes cloud1
 {
   0% { right: 100px;}
   80% { right: 120%; top: 20vh; }
-  81% { right: 120%; top: -10vh; }
-  82% { right: -20%; top: -10vh; }
+  81% { right: 120%; top: -20vh; }
+  82% { right: -20%; top: -20vh; }
   83% { right: -20%; top: 20vh; }
   100% { right: 100px; top: 20vh; }
 }
@@ -303,8 +303,8 @@ body:hover .cloud.four {
 {
   0% { left: 200px;}
   20% { left: -200px; top: 10vh; }
-  21% { left: -200px; top: -10vh; }
-  22% { left: 120%; top: -10vh; }
+  21% { left: -200px; top: -20vh; }
+  22% { left: 120%; top: -20vh; }
   23% { left: 120%; top: 10vh; }
   100% { left: 200px; }
 }
@@ -536,24 +536,24 @@ body:hover .cloud.four {
   content: '';
   position: absolute;
   display: block;
-  border-right: 60vw solid rgba(252, 190, 56, 0.3);
-  border-bottom: 5vw solid transparent;
-  margin-left: -14vw;
-  margin-top: 2vh;
   z-index: -1;
   opacity: 0;
-  transform: rotate(2deg);
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-left: 540px solid rgba(252, 190, 56, 0.3);
 }
 
 .frontlight:after {
   content: '';
   position: absolute;
   display: block;
-  background-color: #595959;
-  height: 30px;
-  width: 50vw;
-  margin-left: 0;
-  margin-top: 66px;
+  z-index: -1;
+  height: 0;
+  width: 0;
+  border-top: 40px solid transparent;
+  border-left: 203px solid #595959;
+  top: 20px;
 }
 
 /* background */
@@ -885,6 +885,7 @@ body:hover .cloud.four {
 .hill {
   position: absolute;
   height: 30vh;
+  min-height: 250px;
   width: 200%;
   background-color: #A0B454;
   bottom: 100px;
@@ -898,6 +899,7 @@ body:hover .cloud.four {
   background-color: #7f9137;
   left: 100%;
   height: 50vh;
+  min-height: 450px;
   bottom: -100px;
   border-radius: 50% / 25vh;
 }
@@ -905,6 +907,7 @@ body:hover .cloud.four {
 .hill.three {
   background-color: #6a7735;
   height: 10vh;
+  min-height: 80px;
   border-radius: 50% / 5vh;
   transform: none;
   bottom: 150px;
